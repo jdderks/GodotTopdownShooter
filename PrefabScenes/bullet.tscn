@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c26sllyona2xm"]
+
+[ext_resource type="Texture2D" uid="uid://b4hjf1smwuq4y" path="res://icon.svg" id="1_e7sjs"]
+[ext_resource type="Script" path="res://Scripts/BulletProjectile.cs" id="2_mybt2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_24x87"]
+size = Vector2(130, 130)
+
+[node name="bullet" type="Sprite2D"]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_e7sjs")
+script = ExtResource("2_mybt2")
+speed = 300.0
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(7.15256e-06, 7.15256e-06)
+shape = SubResource("RectangleShape2D_24x87")

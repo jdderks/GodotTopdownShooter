@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc56ag8d4hbvo"]
+
+[ext_resource type="Script" path="res://GameManager.cs" id="1_4w0fc"]
+[ext_resource type="PackedScene" uid="uid://chhhdh1dbiurc" path="res://PrefabScenes/player.tscn" id="1_bybqr"]
+[ext_resource type="Script" path="res://Scripts/BulletCounter.cs" id="2_mjl2u"]
+
+[node name="world" type="Node2D"]
+script = ExtResource("1_4w0fc")
+
+[node name="Player(Move)" parent="." instance=ExtResource("1_bybqr")]
+position = Vector2(782, 254)
+rotation = -0.000581228
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+script = ExtResource("2_mjl2u")

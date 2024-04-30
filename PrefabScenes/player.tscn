@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://chhhdh1dbiurc"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMove.cs" id="1_164co"]
+[ext_resource type="Texture2D" uid="uid://c0tmrsf8xba6s" path="res://playerSprite.png" id="1_du3dt"]
+[ext_resource type="Script" path="res://Scripts/PlayerLook.cs" id="1_hb1j8"]
+[ext_resource type="Script" path="res://Scripts/PlayerShoot.cs" id="4_rlymy"]
+[ext_resource type="PackedScene" uid="uid://c26sllyona2xm" path="res://PrefabScenes/bullet.tscn" id="5_80jjj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3tyag"]
+radius = 83.814
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_164co")
+Speed = 50.0
+
+[node name="PlayerSprite" type="Sprite2D" parent="."]
+rotation = 1.57079
+scale = Vector2(0.33, 0.33)
+texture = ExtResource("1_du3dt")
+script = ExtResource("1_hb1j8")
+
+[node name="Gun" type="Node2D" parent="PlayerSprite"]
+position = Vector2(0.000284778, -128.205)
+script = ExtResource("4_rlymy")
+bulletPrefab = ExtResource("5_80jjj")
+
+[node name="Area2D" type="Area2D" parent="PlayerSprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSprite/Area2D"]
+shape = SubResource("CircleShape2D_3tyag")
